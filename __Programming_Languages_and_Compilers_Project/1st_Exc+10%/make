@@ -1,0 +1,4 @@
+bison -d JSONParser.y
+flex JSONParser.l
+gcc JSONParser.tab.c lex.yy.c -lfl
+./a.exe last_result.json
