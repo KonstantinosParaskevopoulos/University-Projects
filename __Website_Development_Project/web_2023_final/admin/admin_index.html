@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<html>
+<head>
+
+<link rel="stylesheet" href="leaflet/node_modules/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="admin_index.css">
+<link rel="stylesheet" href="leaflet-search/src/leaflet-search.css" />
+<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.6/dist/leaflet-search.min.css" />-->
+
+</head>
+<body>
+  <!-- Εδώ ορίζουμε το menu bar της ιστοσελίδας, δηλώνοντας όλα τα πιθανά link - pages στο interface του χρήστη -->
+  <div class="topnav"><!--active-->
+    <a class="active" href="admin_index.html">Αρχική Σελίδα</a>
+    <a href="./Processing_offers/processing_offers.html">Επεξεργασία Προσφορών</a>
+    <a href="./Discount_Register/Discount_Store.php">Υποβολή Προσφοράς</a>
+    <a href="./View_Stats/Select_Chart.html">Απεικόνιση Στατιστικών</a>
+    <a href="./Leaderboard/leaderboard.php?page=1">Leaderboard</a>
+    <a href="./Upload_JSON/file_upload_.html">Ανέβασμα αρχείου τιμών προϊόντων</a>
+    <a href="./View_Filt_Map/filt_map_cat_select.html">Προβολή Φιλτραρισμένου Χάρτη</a>
+    <a href="../logout.php">Αποσύνδεση</a>
+  </div>
+  <form action="maps_upload.php" method="post" enctype="multipart/form-data">
+    Ανεβάστε το αρχείο maps.json:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload File" name="submit">
+  </form>
+  <!-- ΧΑΡΤΕΣ -->
+    <div id="mapid"></div>
+    <script src="leaflet/node_modules/leaflet/dist/leaflet.js"></script>
+    <script src="leaflet-color-markers/leaflet-color-markers.js"></script>
+    <script src="leaflet-search/src/leaflet-search.js"></script>
+
+    <script type="module" src="admin_index.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-search/2.9.6/leaflet-search.min.js"></script>-->
+
+
+
+</body>
+</html>

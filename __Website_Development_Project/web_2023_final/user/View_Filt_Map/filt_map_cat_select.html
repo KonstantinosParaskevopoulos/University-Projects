@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<html>
+<head>
+  <link rel="stylesheet" href="view_filtered_map.css">
+</head>
+<body>
+  <!-- Εδώ ορίζουμε το menu bar της ιστοσελίδας, δηλώνοντας όλα τα πιθανά link - pages στο interface του χρήστη -->
+  <div class="topnav">
+    <a class="active" href="filt_map_cat_select.html">Προβολή Φιλτραρισμένου Χάρτη</a>
+    <a href="../Show_offers/Show_Offers.html">Εμφάνιση Διαθέσιμων Προσφορών</a>
+    <a href="../Discount_Register/Discount_Store.php">Δηλώστε μια προσφορά</a>
+    <a href="../main_page.html">Αρχική Σελίδα</a>
+    <a href="../Profile_settings/show_profile_settings.php">Ρυθμίσεις Προφίλ</a>
+    <a href="../../logout.php">Αποσύνδεση</a>
+  </div>
+
+<div class="form">
+<form name="view_filtered_map_form" class="view_filtered_map_form" id="view_filtered_map_form" action="get_filt_stores.php" method = "POST">
+      <select name="category">
+        <option value="">Επιλέξτε Κατηγορία Προϊόντος</option>
+        <option value="all">Όλες οι Κατηγορίες</option>
+        <option value="Τρόφιμα">Τρόφιμα</option>
+        <option value="Ποτά - Αναψυκτικά">Ποτά - Αναψυκτικά</option>
+        <option value="Βρεφικά Είδη">Βρεφικά Είδη</option>
+        <option value="Καθαριότητα">Καθαριότητα</option>
+        </select>
+        <button>Εμφάνιση Καταστημάτων</button>
+</form>
+
+
+</body>
+</html>

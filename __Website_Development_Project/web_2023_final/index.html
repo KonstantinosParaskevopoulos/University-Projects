@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" lang="el">
+<head>
+  <meta charset="UTF-8">
+  <title>Συνδεθείτε στο e-Καταναλωτής </title>
+
+  <link rel="stylesheet" href="./styling.css"> 
+
+</head>
+<body>
+  <!--action="registration.php"-->
+  <div class="login_page">
+  <div class="form">
+    <form name="form_reg" action="registration.php" class="register_form" onsubmit = "return blankCheck_reg()" method = "POST" > <!-- Χρησιμοποιούμε την POST γιατί είναι πιο κατάλληλη για μεταφορά κωδικών και στοιχείων του χρήστη -->
+      <input type="text" id = "user_1" name = "user_1" placeholder="Συνθηματικό Χρήστη"/>
+      <input type="password" id = "pass_1" name = "pass_1" placeholder="Κωδικός Πρόσβασης" pattern="(?=.*\d)(?=.*[@$!%*#?&amp])(?=.*[A-Z]).{8,}" title="Πρέπει να περιέχει τουλάχιστον 8 χαρακτήρες, τουλάχιστον έναν αριθμό, ένα κεφαλάιο χαρακτήρα και τουλάχιστον έναν σύμβολο (π.χ. #$*@)" required/>
+      <button>Εγγραφή</button>
+   
+      
+      <p class="message">Είστε Ήδη Εγγεγραμμένος; <a href="#">Συνδεθείτε</a></p> <!-- Ο σύνδεσμος μεταφέρει την οθόνη στη κορυφή -->
+    </form>
+
+    <form name="form_login" action="login_php.php" class="login_form" onsubmit = "return blankCheck_login()" method = "POST">
+      <input type="text" id = "user_2" name = "user_2" placeholder="Συνθηματικό Χρήστη"/>
+      <input type="password" id = "pass_2" name = "pass_2" placeholder="Κωδικός Πρόσβασης" pattern="(?=.*\d)(?=.*[@$!%*#?&amp])(?=.*[A-Z]).{8,}" title="Πρέπει να περιέχει τουλάχιστον 8 χαρακτήρες, τουλάχιστον έναν αριθμό, ένα κεφαλάιο χαρακτήρα και τουλάχιστον έναν σύμβολο (π.χ. #$*@)" required/>
+      <button>Σύνδεση</button>
+    
+      
+      <p class="message">Δεν έχετε κάνει Εγγραφή? <a href="#">Εγγραφείτε</a></p>
+    </form>
+  </div>
+</div>
+
+
+ <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
+
+ <script>  
+  function blankCheck_reg()  //Έλεγχος για Κενά Πεδία
+  {  
+      var id=document.form_reg.user_1.value;  
+      var ps=document.form_reg.pass_1.value;
+      var em=document.form_reg.email_1.value; 
+      if(id.length=="" || ps.length=="" || em.length=="") {  
+          alert("User Name, Password or Email field is empty");  
+          return false;  
+      }    
+  }                               
+</script>
+
+<script>  
+  function blankCheck_login()  
+  {  
+      var id=document.form_login.user_2.value;  
+      var ps=document.form_login.pass_2.value;  
+      if(id.length=="" && ps.length=="") {  
+          alert("User Name and Password fields are empty");  
+          return false;  
+      }  
+      else  
+      {  
+          if(id.length=="") {  
+              alert("User Name is empty");  
+              return false;  
+          }   
+          if (ps.length=="") {  
+          alert("Password field is empty");  
+          return false;  
+          }  
+      }                             
+  }  
+</script>
+
+</body>
+</html>

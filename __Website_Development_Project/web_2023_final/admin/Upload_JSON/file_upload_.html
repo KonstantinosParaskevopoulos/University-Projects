@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" lang="el">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./file_upload.css">
+</head>
+<body>
+  <!-- Εδώ ορίζουμε το menu bar της ιστοσελίδας, δηλώνοντας όλα τα πιθανά link - pages στο interface του χρήστη -->
+  <div class="topnav"><!--JSON_Upload-->
+    <a href="../admin_index.html">Αρχική Σελίδα</a>
+    <a href="../Processing_offers/processing_offers.html">Επεξεργασία Προσφορών</a>
+    <a href="../Discount_Register/Discount_Store.php">Υποβολή Προσφοράς</a>
+    <a href="../View_Stats/Select_Chart.html">Απεικόνιση Στατιστικών</a>
+    <a href="../Leaderboard/leaderboard.php?page=1">Leaderboard</a>
+    <a class="active" href="./file_upload_.html">Ανέβασμα αρχείου τιμών προϊόντων</a>
+    <a href="../View_Filt_Map/filt_map_cat_select.html">Προβολή Φιλτραρισμένου Χάρτη</a>
+    <a href="../../logout.php">Αποσύνδεση</a>
+  </div>
+
+<div class="form">
+<form action="file_upload.php" method="post" enctype="multipart/form-data">Ανεβάστε το αρχείο JSON με τις τιμές των Προϊόντων:
+  <input type="file" name="fileToUpload" id="fileToUpload">
+  <button>Ανέβασμα Αρχείου</button>
+
+</form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+#mapid { height: 905px; width: 100%;}
+
+/* Προσθέτει μαύρο χρώμα ως φόντο στο περιγράμμα του menu bar */
+.topnav {
+  background-color: #268;
+  overflow: hidden;
+}
+
+/* Μορφοποίηση των συνδέσμων εντός του menu bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+/* Χρώμα όταν περνάμε πάνω από το κάθε button με το ποντίκι */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Χρώμα στο ΤΡΕΧΟΝ link-page που βρισκόμαστε */
+.topnav a.active {
+  background-color: #800080;
+  color: white;
+}
+body {
+  background: #5F021F; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #5F021F, #5F021F);
+  background: -moz-linear-gradient(right, #5F021F, #5F021F);
+  background: -o-linear-gradient(right, #5F021F, #5F021F);
+  background: linear-gradient(to left, #5F021F, #5F021F);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" lang="el">
+<head>
+  <meta charset="UTF-8">
+  <title>Αλλαγή Στοιχείων</title>
+
+  <link rel="stylesheet" href="./change_profile_settings.css">
+
+</head>
+<body>
+  <!-- Εδώ ορίζουμε το menu bar της ιστοσελίδας, δηλώνοντας όλα τα πιθανά link - pages στο interface του χρήστη -->
+  <div class="topnav">
+    <a class="active" href="./show_profile_settings.php">Ρυθμίσεις Προφίλ</a>
+    <a href="../../Show_offers/Show_Offers.html">Εμφάνιση Διαθέσιμων Προσφορών</a>
+    <a href="../../main_page.html">Αρχική Σελίδα</a>
+    <a href="../../View_Filt_Map/filt_map_cat_select.html">Προβολή Φιλτραρισμένου Χάρτη</a>
+    <a href="../../Discount_Register/Discount_Store.php">Δηλώστε μια προσφορά</a>
+    <a href="../../../logout.php">Αποσύνδεση</a>
+  </div>
+
+
+
+ <div class="form">
+    <form name="form_update" class="update_page" action ="change_profile_settings.php" onsubmit = "return blankCheck_reg()" method = "POST" >
+      <input type="text" id = "user_1" name="user_1" placeholder="Νέο Συνθηματικό Χρήστη"/>
+      <input type="password" id = "pass_1" name="pass_1" placeholder="Νέος Κωδικός Πρόσβασης" pattern="(?=.*\d)(?=.*[@$!%*#?&amp])(?=.*[A-Z]).{8,}" title="Πρέπει να περιέχει τουλάχιστον 8 χαρακτήρες, τουλάχιστον έναν αριθμό, ένα κεφαλάιο χαρακτήρα και τουλάχιστον έναν σύμβολο (π.χ. #$*@)"/>
+      <button>Ενημέρωση Στοιχείων</button>
+   </form>
+  </div>
+
+
+ <script>
+  function blankCheck_reg()
+  {
+      var id=document.form_update.user_1.value;
+      var ps=document.form_update.pass_1.value;
+
+      if(id.length=="" && ps.length=="") {
+          alert("To συνθηματικό χρήστη και ο κωδικός πρόσβασης είναι κενά!");
+          return false;
+      }
+  }
+</script>
+
+</body>
+</html>

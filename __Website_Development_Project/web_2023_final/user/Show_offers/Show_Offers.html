@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+  <link rel="stylesheet" href="Show_Offers.css">
+<script>
+function showOffer(str) {//Συνάρτηση εμφάνισης προσφορών
+  if (str=="") {
+    document.getElementById("txtHint").innerHTML="";//Διαγραφή περιεχομένου του txtHint
+    return;
+  }
+  var xmlhttp=new XMLHttpRequest();//Request από php με μεθόδους AJAX
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("txtHint").innerHTML=this.responseText;//Όταν βρεθεί το αίτημα σε κατάσταση Ready αλλαγή του περιεχομένου του txtHint με τα δεδομένα που επιστράφηκαν από την php
+    }
+  };
+  xmlhttp.open("GET","get_offers.php?q="+str,true);//Ορισμός αιτήματος http για την php με όρισμα q='κατηγορία'
+  xmlhttp.send();//Αποστολή αιτήματος
+}
+</script>
+</head>
+<body>
+  <!-- Εδώ ορίζουμε το menu bar της ιστοσελίδας, δηλώνοντας όλα τα πιθανά link - pages στο interface του χρήστη -->
+  <div class="topnav">
+    <a class="active" href="./Show_Offers.html">Εμφάνιση Διαθέσιμων Προσφορών</a>
+    <a href="../main_page.html">Αρχική Σελίδα</a>
+    <a href="../Discount_Register/Discount_Store.php">Δηλώστε μια προσφορά</a>
+    <a href="../View_Filt_Map/filt_map_cat_select.html">Προβολή Φιλτραρισμένου Χάρτη</a>
+    <a href="../Profile_settings/show_profile_settings.php">Ρυθμίσεις Προφίλ</a>
+    <a href="../../logout.php">Αποσύνδεση</a>
+  </div>
+
+
+<form>
+<select name="offers" onchange="showOffer(this.value)">
+<option value="">Επιλέξτε μια κατηγορία:</option>
+<option value="all">Όλες οι Κατηγορίες</option>
+<option value="Βρεφικά Είδη">Βρεφικά Είδη</option>
+<option value="Ποτά - Αναψυκτικά">Ποτά - Αναψυκτικά</option>
+<option value="Καθαριότητα">Καθαριότητα</option>
+<option value="Τρόφιμα">Τρόφιμα</option>
+</select>
+</form>
+<br>
+<div id="txtHint"><b>Οι διαθέσιμες προσφορές θα εμφανιστούν εδώ.</b></div>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<html>
+<head>
+<script>
+// Javascript για την λειτουργικότητα της φόρμας δήλωσης προσφοράς //
+var categoryObject = {
+  "Τρόφιμα": {
+    "Γάλα": ["Όλυμπος Γάλα Επιλεγμ 1,5% Λ 1λιτ", "Μεβγάλ Γάλα Αγελ Λευκό Light 1,5% 500ml", "Δέλτα Γάλα Daily Υψ Παστ Χ Λακτ 1λιτ", "Νουνού Γάλα Light Μερίδες Διχ 10Χ15γρ", "Δέλτα Milko Κακάο 450ml"],
+    "Γιαούρτια": ["Μεβγάλ Harmony 1% Φράουλα 3Χ200γρ", "Μεβγάλ Στραγγιστό Γιαούρτι 1κιλ", "Φάγε Total Γιαούρτι 5% Φάγε 3Χ200γρ", "Όλυμπος Γιαούρτι Στραγγ 10% Λ 3Χ200γρ", "Ροδόπη Γιαούρτι Πρόβειο Βιο 240γρ"]
+  },
+  "Ποτά - Αναψυκτικά": {
+    "Αναψυκτικά-Ενεργειακά Ποτά": ["Frulite Σαγκουίνι/Μανταρίνι 1λιτ", "Coca Cola 1λιτ", "Coca Cola 330ml", "Sprite Αναψυκτικό 1,5λιτ", "Coca Cola Zero 2Χ1,5λιτ", "Coca Cola Zero 330ml"],
+    "Εμφιαλωμένα Νερά": ["Κορπή Φυσικό Μεταλλικό Νερό1,5λιτ", "Σουρωτή Ανθρακούχο Φυσικό Νερό 250ml", "Βίκος Φυσικό Μεταλλικό Νερό 500ml", "Αύρα Νερό Μεταλ Μπλουμ 330ml", "ΣΟΥΡΩΤΗ Μεταλλικό Νερό Ανθρ Λεμον 330ml " ]
+  },
+  "Βρεφικά Είδη": {
+  "Βρεφικές Τροφές": ["Almiron-3 Γάλα Σε Σκόνη Τρίτης Βρεφικής Ηλικίας 800γρ", "Almiron-2 Γάλα Σε Σκόνη Δεύτερης Βρεφικής Ηλικίας 800γρ", "Γιώτης Sanilac 1 Γάλα Σε Σκόνη Πρώτης Βρεφικής Ηλικίας 400γρ", "Nan Optipro 4 Γάλα Σε Σκόνη Δεύτερης Βρεφικής Ηλικίας 400γρ", "Nestle Ρόφημα Γαλακτ Junior 2+ Rtd 1λιτ"],
+  "Πάνες": ["Babylino Πάνες Μωρού Sensitive 4 - 9 κιλ No 3 22τεμ", "Pampers Πάνες Μωρού Premium Care Nο 6 13+κιλ 38τεμ", "Babylino Sensitive No6 Econ 15-30κιλ 40τεμ", "Libero Swimpants Πάνες Small 7-12κιλ 6τεμ", "Pampers Prem Care No4 8-14κιλ 34τεμ"]
+  },
+  "Καθαριότητα": {
+  "Απορρυπαντικά": ["Ariel Alpine Απορ Σκόνη 2,925γρ", "Ariel Alpine Υγρές Καψ 3σε1 24πλ", "Skip Υγρό Πλ Παν/Μικρ 26πλ 910ml", "Fairy Υγρό Πιάτων Ultra Classic 400ml", "Fairy Original All in One Καψ Πλυντ Πιάτ Λεμόνι 22τεμ"],
+  "Αποσμητικά Χώρου": ["Airwick Αποσμ Χώρου Stick Up 120γρ 2τεμ", "Airwick Αντ/Κο Αποσμ Χώρου Βαν/Ορχιδ", "Glade Αντ/Κο Αποσμ Χώρου Λεβάντα", "Airwick Αντ/Κο Freshmatic Βαν/Ορχιδ 250ml"],
+  "Εντομοκτόνα-Εντομοαποθητικά": ["Pyrox Εντομ/Κο Σπιράλ 10τεμ", "Autan Family Care Spray 100ml", "Vapona Σκοροκτόνα Φύλλα 20τμχ", "Pyrox Εντομ/Ko Σπιράλ 20τεμ", "Fego Καμφορά Πλακέτα 6τεμ"]
+  }
+}
+window.onload = function() {    //Εμφάνιση συγκεκριμένων υποκατηγοριών και προϊόντων ανάλογα την επιλογή της γονικής κατηγορίας και υποκατηγορίας αντίστοιχα
+  var categorySel = document.getElementById("category");
+  var subcategorySel = document.getElementById("subcategory");
+  var productSel = document.getElementById("product");
+  for (var x in categoryObject) {
+    categorySel.options[categorySel.options.length] = new Option(x, x);
+  }
+  categorySel.onchange = function() {
+    //empty Chapters- and Topics- dropdowns
+    productSel.length = 1;
+    subcategorySel.length = 1;
+    //display correct values
+    for (var y in categoryObject[this.value]) {
+      subcategorySel.options[subcategorySel.options.length] = new Option(y, y);
+    }
+  }
+  subcategorySel.onchange = function() {
+    //empty Chapters dropdown
+    productSel.length = 1;
+    //display correct values
+    var z = categoryObject[categorySel.value][this.value];
+    for (var i = 0; i < z.length; i++) {
+      productSel.options[productSel.options.length] = new Option(z[i], z[i]);
+    }
+  }
+}
+</script>
+
+<link rel="stylesheet" href="./Discount_Submit.css">
+</head>
+<body>
+  <!-- Εδώ ορίζουμε το menu bar της ιστοσελίδας, δηλώνοντας όλα τα πιθανά link - pages στο interface του χρήστη -->
+  <div class="topnav">
+    <a class="active" href="./Discount_Store.php">Δηλώστε μια προσφορά</a>
+    <a href="../Show_offers/Show_Offers.html">Εμφάνιση Διαθέσιμων Προσφορών</a>
+    <a href="../main_page.html">Αρχική Σελίδα</a>
+    <a href="../View_Filt_Map/filt_map_cat_select.html">Προβολή Φιλτραρισμένου Χάρτη</a>
+    <a href="../Profile_settings/show_profile_settings.php">Ρυθμίσεις Προφίλ</a>
+    <a href="../../logout.php">Αποσύνδεση</a>
+  </div>
+
+
+<!--  Δημιουργία Φόρμας Κατηγορίας-Υποκατηγορίας-Προιόντων (Βάθους 3) -->
+<div class="form">
+  <form name="form_discount_register" class="form_discount_register" id="form_discount_register" action="Discount_Register.php">
+    <div class="select-dropdown">
+      <select name="category" id="category">
+      <option value="" selected="selected">Επιλέξτε Κατηγορία</option>
+      </select>
+    </div>
+    <br><br>
+    <div class="select-dropdown">
+      <select name="subcategory" id="subcategory">
+      <option value="" selected="selected">Επιλέξτε Υποκατηγορία</option>
+      </select>
+    </div>
+    <br><br>
+    <div class="select-dropdown">
+      <select name="product" id="product">
+      <option value="" selected="selected">Επιλέξτε Προϊόν</option>
+      </select>
+    </div>
+    <br><br>
+    <label for="price"><b>Τιμή Προϊόντος (Eυρώ):</b></label>
+    <input type="number" id="price" name="price" min="0" max="100" step="0.01">
+    <label for="ID"><b>ID Καταστήματος:</b></label>
+    <input type="number" id="ID" name="ID" min="0" max="1000" step="1">
+    <button>Καταχωρηση Προσφορας</button>
+   </form>
+
+</div>
+
+
+</body>
+</html>

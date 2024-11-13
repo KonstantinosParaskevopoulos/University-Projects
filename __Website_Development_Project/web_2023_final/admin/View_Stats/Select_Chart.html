@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<html>
+
+<head>
+  <link rel="stylesheet" href="Select_Chart.css">
+  <style type="text/css">
+    #chart-container {
+        width: 1280px;
+        height: auto;
+    }
+    #chart-container_2 {
+        width: 1280px;
+        height: auto;
+    }
+</style>
+</head>
+<body>
+  <!-- Εδώ ορίζουμε το menu bar της ιστοσελίδας, δηλώνοντας όλα τα πιθανά link - pages στο interface του χρήστη -->
+  <div class="topnav"><!--Chart-->
+    <a href="../admin_index.html">Αρχική Σελίδα</a>
+    <a href="../Processing_offers/processing_offers.html">Επεξεργασία Προσφορών</a>
+    <a href="../Discount_Register/Discount_Store.php">Υποβολή Προσφοράς</a>
+    <a class="active" href="./Select_Chart.html">Απεικόνιση Στατιστικών</a>
+    <a href="../Leaderboard/leaderboard.php?page=1">Leaderboard</a>
+    <a href="../Upload_JSON/file_upload_.html">Ανέβασμα αρχείου τιμών προϊόντων</a>
+    <a href="../View_Filt_Map/filt_map_cat_select.html">Προβολή Φιλτραρισμένου Χάρτη</a>
+    <a href="../../logout.php">Αποσύνδεση</a>
+  </div>
+<br><br>
+  <h2><b>Γράφημα Προσφορών Προϊόντων</b></h2>
+  <div id="chart-container">
+			<canvas title="Γράφημα Προσφορών Προϊόντων" id="mycanvas"></canvas>
+		</div>
+    <br><br>
+    <h2><b>Γράφημα Μέσης Τιμής Προϊόντων</b></h2>
+    <div id="chart-container_2">
+			<canvas title="Γράφημα Μέσης Τιμής Προϊόντων" id="mycanvas2"></canvas>
+		</div>
+    
+
+		<!-- javascript -->
+		<script
+  		src="https://code.jquery.com/jquery-3.6.3.min.js"
+  		integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+  		crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="./app.js"></script>
+    <script src="./app_2.js"></script>
+</body>
+</html>
+
+

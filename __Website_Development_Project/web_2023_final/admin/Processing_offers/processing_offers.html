@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+  <link rel="stylesheet" href="processing_offers.css">
+<script>
+function showOffer(str) {
+  if (str=="") {
+    document.getElementById("txtHint").innerHTML="";
+    return;
+  }
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("txtHint").innerHTML=this.responseText;
+    }
+  };
+  xmlhttp.open("GET","get_offers.php?q="+str,true);
+  xmlhttp.send();
+}
+</script>
+</head>
+<body>
+  <!-- Εδώ ορίζουμε το menu bar της ιστοσελίδας, δηλώνοντας όλα τα πιθανά link - pages στο interface του χρήστη -->
+  <div class="topnav"><!--processing-->
+    <a href="../admin_index.html">Αρχική Σελίδα</a>
+    <a class="active" href="./processing_offers.html">Επεξεργασία Προσφορών</a>
+    <a href="../Discount_Register/Discount_Store.php">Υποβολή Προσφοράς</a>
+    <a href="../View_Stats/Select_Chart.html">Απεικόνιση Στατιστικών</a>
+    <a href="../Leaderboard/leaderboard.php?page=1">Leaderboard</a>
+    <a href="../Upload_JSON/file_upload_.html">Ανέβασμα αρχείου τιμών προϊόντων</a>
+    <a href="../View_Filt_Map/filt_map_cat_select.html">Προβολή Φιλτραρισμένου Χάρτη</a>
+    <a href="../../logout.php">Αποσύνδεση</a>
+  </div>
+
+<form>
+<select name="offers" onchange="showOffer(this.value)">
+<option value="">Επιλέξτε μια κατηγορία:</option>
+<option value="all">Όλες οι Κατηγορίες</option>
+<option value="Βρεφικά Είδη">Βρεφικά Είδη</option>
+<option value="Ποτά - Αναψυκτικά">Ποτά - Αναψυκτικά</option>
+<option value="Καθαριότητα">Καθαριότητα</option>
+<option value="Τρόφιμα">Τρόφιμα</option>
+</select>
+</form>
+<br>
+<div id="txtHint"><b>Οι διαθέσιμες προσφορές θα εμφανιστούν εδώ.</b></div>
+
+</body>
+</html>
