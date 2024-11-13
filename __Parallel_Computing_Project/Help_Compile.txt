@@ -1,0 +1,18 @@
+//Serial
+
+gcc -o multistart_hooke_seq multistart_hooke_seq.c -lm
+
+//MPI
+
+mpicc multistart_hooke_mpi_2021-22.c -o multistart_mpi -lm
+
+
+//OpenMP
+
+gcc -o multistart_omp -fopenmp multistart_hooke_omp.c -lm
+
+
+//OpenMP MPI
+
+mpicc -fopenmp multistart_hooke_mpi_omp_2021-22.c -o multistart_mpi_omp -lm
+
